@@ -1,3 +1,6 @@
+Description: >
+    server infrastructure
+
 Parameters:
   EnvironmentName:
     Description: An environment name that will be prefixed to resource names
@@ -82,7 +85,7 @@ Resources:
           sudo apt-get install apache2 -y
           sudo systemctl start apache2.service   
           cd /var/www/html
-          echo "Udacity Demo Web Server Up and Running!" > index.html       
+          echo "Udagram Udacity Web Server Up and Running!" > index.html       
       ImageId: ami-005de95e8ff495156
       SecurityGroups:
       - Ref: WebServerSecurityGroup
@@ -153,3 +156,11 @@ Resources:
       VpcId: 
         Fn::ImportValue:
           Fn::Sub: "${EnvironmentName}-VPCID"
+
+Outputs: 
+
+  WebAppAddress:
+    Description: WebApp public address
+    Value: !Join [ "://", [ "http", !GetAtt WebAppLoadBalancer.DNSName ] ]
+    Export:
+      Name: WebAppPublicAddress
