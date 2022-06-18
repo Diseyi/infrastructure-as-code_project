@@ -1,0 +1,11 @@
+### Project Title - Deploy a high-availability web app using CloudFormation
+Infrastructure to Deploy a high-availability web app using CloudFormation" project. This folder contains the following files:
+
+
+#### network.yml
+The CloudFormation code using this YAML template for building the cloud infrastructure, as required for the project. 
+
+#### network-parameters.json
+The JSON file for increasing the generic nature of the YAML code. For example, the JSON file contains a "ParameterKey" as "EnvironmentName" and "ParameterValue" as "UdacityProject". 
+
+In YAML code, the `${EnvironmentName}` would be substituted with `UdacityProject` accordingly.
